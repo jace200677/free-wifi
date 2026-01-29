@@ -5,60 +5,36 @@
 <title>Van Wi-Fi Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f4f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-}
-.container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  background: #0078d4;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
+body { font-family: Arial, sans-serif; background: #f2f4f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+.container { background: white; padding: 30px; border-radius: 12px; max-width: 400px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+button { padding: 12px 20px; font-size: 16px; background: #0078d4; color: white; border: none; border-radius: 6px; cursor: pointer; }
 button:hover { background: #005fa3; }
-.terms {
-  text-align: left;
-  font-size: 14px;
-  margin: 15px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #f9f9f9;
-}
+.terms { text-align: left; font-size: 14px; margin: 15px 0; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #f9f9f9; }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="container" id="portal">
   <h1>Welcome to the Van Wi-Fi</h1>
   <p>Please agree to the terms to access free Wi-Fi:</p>
   <div class="terms">
     <ul>
       <li>Use this Wi-Fi responsibly.</li>
-      <li>Follow school or company rules.</li>
+      <li>Follow van rules.</li>
       <li>No illegal downloads or streaming.</li>
     </ul>
   </div>
-
-  <!-- Agree button redirects to neverssl.com to trigger captive portal -->
-  <form action="http://neverssl.com" method="get">
-    <button type="submit">I Agree</button>
-  </form>
+  <button onclick="agree()">I Agree</button>
 </div>
+
+<script>
+function agree() {
+  const container = document.getElementById('portal');
+  container.innerHTML = `
+    <h1>Welcome!</h1>
+    <p>You now have access to the Van Wi-Fi. Enjoy responsibly.</p>
+    <p>All content is available online.</p>
+  `;
+}
+</script>
 </body>
 </html>
